@@ -2,25 +2,32 @@ package com.streetfood.config;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
-import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.LocaleResolver;
+import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import java.util.Locale;
 
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
 @ComponentScan(basePackages = {
         "com.streetfood.controller",
-//        "com.streetfood.service",
+        "com.streetfood.service",
         "com.streetfood.repository"
 })
+@EnableJpaRepositories("com.streetfood.repository")
 public class WebAppContextConfig implements WebMvcConfigurer {
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
@@ -54,5 +61,34 @@ public class WebAppContextConfig implements WebMvcConfigurer {
                 "secure", true
         ));
         return cloudinary;
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry){
+        registry.addResourceHandler("/resources/**")
+                .addResourceLocations("/resources/");
+    }
+    @Bean("messageSource")
+    public MessageSource messageSource(){
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasenames("classpath:i18n/layout");
+        messageSource.setDefaultEncoding("UTF-8");
+        return messageSource;
+    }
+
+    @Bean("localeResolver")
+    public LocaleResolver localeResolver(){
+        CookieLocaleResolver localeResolver = new CookieLocaleResolver();
+        localeResolver.setDefaultLocale(new Locale("vi"));
+        localeResolver.setCookiePath("/");
+        localeResolver.setCookieMaxAge(60*60);
+        return localeResolver;
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry){
+        LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
+        interceptor.setParamName("lang");
+        registry.addInterceptor(interceptor).addPathPatterns("/**");
     }
 }

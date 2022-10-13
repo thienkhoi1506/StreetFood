@@ -1,0 +1,60 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<html>
+<head>
+    <title><tiles:insertAttribute name="title"/></title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.css"
+          integrity="sha512-vh3qZydgHrPxdxwRhcgtoovKGWVolDZmOW9s4qDyPYnlqqPm5uzOoVj4Rq4I7bxfhuNFhgKZXp4LUIJDbCvmIA=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+    />
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+            integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
+</head>
+<body>
+<div class="container">
+    <header class="row">
+        <tiles:insertAttribute name="header"/>
+    </header>
+    <nav class="row"><tiles:insertAttribute name="menu"/> </nav>
+    <main class="row">
+        <article class="col-sm-9"><tiles:insertAttribute name="content"/></article>
+        <aside class="col-sm-3"><tiles:insertAttribute name="aside"/></aside>
+    </main>
+    <tiles:insertAttribute name="footer"/>
+</div>
+<!-- MDB -->
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"
+        integrity="sha512-jgqnY5wi2gxl4Yj4iXEEpVWrBI6JeJQc67LVC/a65X/TeMotFC0veqlMqYHAI3FfS3hCdx5z6fqKFzXqdnKXDw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.20.0/js/mdb.min.js"
+        integrity="sha512-XFd1m0eHgU1F05yOmuzEklFHtiacLVbtdBufAyZwFR0zfcq7vc6iJuxerGPyVFOXlPGgM8Uhem9gwzMI8SJ5uw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"></script>
+</body>
+</html>
