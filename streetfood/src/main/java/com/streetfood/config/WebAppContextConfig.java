@@ -18,7 +18,7 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableTransactionManagement
 @ComponentScan(basePackages = {
         "com.streetfood.controller",
-//        "com.streetfood.service",
+        "com.streetfood.service",
         "com.streetfood.repository"
 })
 public class WebAppContextConfig implements WebMvcConfigurer {
