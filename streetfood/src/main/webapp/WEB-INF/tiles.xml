@@ -12,4 +12,13 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="home" extends="baseLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/home.jsp"/>
     </definition>
+    <definition name="createOrEdit" extends="baseLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/restaurant/products/createOrEdit.jsp"/>
+    </definition>
+    <definition name="list" extends="baseLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/restaurant/products/list.jsp"/>
+    </definition>
+    <definition name="detail" extends="baseLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/restaurant/products/detail.jsp"/>
+    </definition>
 </tiles-definitions>
