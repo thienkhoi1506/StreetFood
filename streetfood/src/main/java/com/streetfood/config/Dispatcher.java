@@ -7,14 +7,15 @@ public class Dispatcher extends AbstractAnnotationConfigDispatcherServletInitial
     protected Class<?>[] getRootConfigClasses() {
         return new Class[] {
                 HibernateConfiguration.class,
-                TilesConfiguration.class
+                TilesConfiguration.class,
         };
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
         return new Class[] {
-                WebAppContextConfig.class
+                WebAppContextConfig.class,
+//                PaypalConfig.class
         };
     }
 
