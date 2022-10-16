@@ -14,8 +14,7 @@
                         <a href="<c:url value="/restaurant/products/${p.id}"/> " class="btn btn-primary">Xem chi tiết</a>
                         <a href="<c:url value="/restaurant/products/updateForm/${p.id}"/> " class="btn btn-primary">Update</a>
                         <a href="<c:url value="/restaurant/products/delete/${p.id}"/> " class="btn btn-danger" onclick="if (!(confirm('Are you sure you want to delete this customer?'))) return false">Xóa</a>
-                        <a href="#" class="btn btn-primary" onclick="addToCart(${p.id},'${p.name}',${p.price})">Đặt
-                            hàng</a>
+                        <a href="<c:url value="/cart/add/${p.id}"/> " class="btn btn-primary">Thêm vào giỏ hàng</a>
                     </div>
                 </div>
             </div>

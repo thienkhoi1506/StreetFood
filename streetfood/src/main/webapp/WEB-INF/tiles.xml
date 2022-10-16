@@ -21,4 +21,7 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
     <definition name="detail" extends="baseLayout">
         <put-attribute name="content" value="/WEB-INF/jsp/restaurant/products/detail.jsp"/>
     </definition>
+    <definition name="cartDetail" extends="baseLayout">
+        <put-attribute name="content" value="/WEB-INF/jsp/cart/detail.jsp"/>
+    </definition>
 </tiles-definitions>
