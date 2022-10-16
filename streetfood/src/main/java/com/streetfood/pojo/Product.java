@@ -1,5 +1,7 @@
 package com.streetfood.pojo;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -44,6 +46,9 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "CategoryId", referencedColumnName = "Id")
     private Category categoryByCategoryId;
+
+    @Transient
+    private MultipartFile img;
 
     public long getId() {
         return id;
@@ -176,5 +181,13 @@ public class Product {
 
     public void setCategoryByCategoryId(Category categoryByCategoryId) {
         this.categoryByCategoryId = categoryByCategoryId;
+    }
+
+    public MultipartFile getImg() {
+        return img;
+    }
+
+    public void setImg(MultipartFile img) {
+        this.img = img;
     }
 }

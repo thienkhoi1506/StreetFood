@@ -10,7 +10,7 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- Google Fonts -->
     <link
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
@@ -32,18 +32,14 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous"
-          referrerpolicy="no-referrer" />
+          referrerpolicy="no-referrer"/>
 </head>
 <body>
 <div class="container">
-    <header class="row">
-        <tiles:insertAttribute name="header"/>
-    </header>
-<%--    <nav class="row"><tiles:insertAttribute name="menu"/> </nav>--%>
-    <main class="row">
-        <article class="col-sm-9"><tiles:insertAttribute name="content"/></article>
-<%--        <aside class="col-sm-3"><tiles:insertAttribute name="aside"/></aside>--%>
-    </main>
+    <tiles:insertAttribute name="header"/>
+
+    <tiles:insertAttribute name="content"/>
+
     <tiles:insertAttribute name="footer"/>
 </div>
 <!-- MDB -->

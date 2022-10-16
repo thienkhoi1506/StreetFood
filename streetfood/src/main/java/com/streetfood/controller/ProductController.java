@@ -5,8 +5,11 @@ import com.streetfood.service.interfaces.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -15,10 +18,10 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+
     @GetMapping("/list")
     public String listProducts(Model model){
-        List<Product> products = productService.getProducts();
-        model.addAttribute("products", products);
+        model.addAttribute("products", productService.getProducts());
         return "list";
     }
 
@@ -32,11 +35,14 @@ public class ProductController {
     public String showFormAdd(Model model){
         Product product = new Product();
         model.addAttribute("product", product);
-        return "/restaurant/products/createOrEdit";
+        return "createOrEdit";
     }
 
     @PostMapping("/saveProduct")
-    public String saveProduct (@ModelAttribute("product") Product product){
+    public String saveProduct (Model model, @ModelAttribute("product") Product product, BindingResult result){
+        if (result.hasErrors()){
+            model.addAttribute("message", "Some fields are not valid");
+        }
         productService.saveProduct(product);
         return "redirect:/restaurant/products/list";
     }
@@ -45,7 +51,7 @@ public class ProductController {
     public String showFormUpdate(@PathVariable("id") long id, Model model){
         Product product = productService.getProduct(id);
         model.addAttribute("product", product);
-        return "/restaurant/products/createOrEdit";
+        return "createOrEdit";
     }
 
     @GetMapping("/delete/{id}")
@@ -53,4 +59,6 @@ public class ProductController {
         productService.deleteProduct(id);
         return "redirect:/restaurant/products/list";
     }
+
+
 }
