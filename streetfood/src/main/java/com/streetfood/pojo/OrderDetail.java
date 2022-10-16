@@ -33,6 +33,13 @@ public class OrderDetail {
     @JoinColumn(name = "OrderId", referencedColumnName = "Id", nullable = false)
     private Order orderByOrderId;
 
+    public OrderDetail(Object restaurantId, Object productId, Object orderId, String total) {
+        this.restaurantByRestaurantId = (Restaurant) restaurantId;
+        this.productByProductId = (Product) productId;
+        this.orderByOrderId = (Order) orderId;
+        this.totalPrice = BigDecimal.valueOf(Float.parseFloat(total));
+    }
+
     public long getId() {
         return id;
     }

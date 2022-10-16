@@ -3,10 +3,10 @@
 <%--<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>--%>
 <div class="row">
     <div class="col-md-5">
-        <img src="${products.image}" alt="${products.name}" class="img-fluid" />
+        <img src="${product.image}" alt="${product.name}" class="img-fluid" />
     </div>
     <div class="col-md-7">
-        <h1>${products.name}</h1>
-        <h3>${products.price} VND</h3>
+        <h1>${product.name}</h1>
+        <h3>${product.price} VND</h3>
     </div>
 </div>
